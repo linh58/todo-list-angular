@@ -1,0 +1,10 @@
+<div mat-dialog-content>
+  <h2 class="edit-heading">Edit todo</h2>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <input matInput #matInput >
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="handleEditTodo(matInput.value)">OK</button>
+  <button mat-raised-button color="warn" (click)="Closepopup()" >Close</button>
+</div>

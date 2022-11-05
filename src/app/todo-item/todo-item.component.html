@@ -1,0 +1,21 @@
+<li
+  class="todo-item"
+  [class.completed]="todo.completed"
+>
+  <div class="todo-item-name">
+    <input
+      type="checkbox"
+      (click)="onTodoClicked()"
+      class="todo-checkbox"
+    />
+    {{ todo.name }}
+  </div>
+  <div class="todo-item-actions">
+    <button mat-raised-button color="warn" (click)="onDeleteTodoClicked()">
+      Delete
+    </button>
+    <button mat-raised-button color="primary" (click)="onEditTodoClicked()">
+      Edit
+    </button>
+  </div>
+</li>

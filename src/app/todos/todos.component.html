@@ -1,0 +1,29 @@
+<div class="container">
+  <h2 class="todo-heading">To do list</h2>
+  <div class="todo-input">
+    <input
+      type="text"
+      placeholder="What needs to be done?"
+      [(ngModel)]="todoItem"
+      (keyup.enter)="handleAddTodo()"
+    />
+    <button mat-raised-button (click)="handleAddTodo()">Create</button>
+  </div>
+  <ul class="todo-list">
+    <ng-container *ngIf="todoList.length > 0; else noTodos">
+      <app-todo-item 
+        *ngFor="let todo of todoList"
+        [todo]="todo"
+        (todoClicked)="handleCompleteTodo(todo.id)"
+        (editTodoClicked)="handleEditTodo(todo)"
+        (deleteTodoClicked)="handleRemoveTodo(todo.id)"
+      ></app-todo-item>
+      <span>You have {{ todoList.length }} pending tasks</span>
+    </ng-container>
+    <ng-template #noTodos>
+      <span class="todo-note">Nothing on your todo list!</span>
+    </ng-template>
+  </ul>
+  <div class="todo-total">
+  </div>
+</div>
